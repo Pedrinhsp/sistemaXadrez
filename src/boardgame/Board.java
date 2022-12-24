@@ -6,6 +6,12 @@ public class Board {
     private int columns;
     private Piece[][] pieces;
 
+    public Board(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+        pieces = new Piece[rows][columns];
+    }
+
     public Piece piece(int row, int column){
         return pieces[row][column];
     }
@@ -14,12 +20,11 @@ public class Board {
         return pieces[position.getRow()][position.getColum()];
     }
 
-
-    public Board(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
-        pieces = new Piece[rows][columns];
+    public void placePiece(Piece piece, Position position){
+        pieces[position.getRow()][position.getColum()] = piece;
+        piece.position = position;
     }
+
 
     public int getRows() {
         return rows;
